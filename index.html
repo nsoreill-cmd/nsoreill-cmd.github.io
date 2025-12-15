@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,6 @@
             color: var(--text-dark);
         }
 
-        /* Navigation */
         nav {
             background: var(--ocean-deep);
             position: fixed;
@@ -80,7 +80,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-blue) 100%);
             color: var(--white);
@@ -146,7 +145,6 @@
             color: var(--ocean-deep);
         }
 
-        /* Sections */
         section {
             padding: 80px 2rem;
         }
@@ -177,26 +175,39 @@
             border-radius: 2px;
         }
 
-        /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 3rem;
-            align-items: center;
+            align-items: start;
+        }
+
+        .about-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .about-image {
             width: 100%;
-            height: 400px;
+            height: 250px;
             background: linear-gradient(135deg, var(--ocean-blue), var(--ocean-light));
             border-radius: 15px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 2rem;
+        }
+
+        .about-image.main {
+            height: 350px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .about-text h3 {
@@ -211,7 +222,28 @@
             line-height: 1.8;
         }
 
-        /* Research Section */
+        .document-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .doc-link {
+            padding: 10px 20px;
+            background: var(--ocean-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .doc-link:hover {
+            background: var(--ocean-deep);
+            transform: translateY(-2px);
+        }
+
         .research-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -240,6 +272,13 @@
             justify-content: center;
             color: var(--white);
             font-weight: 600;
+            overflow: hidden;
+        }
+
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .research-content {
@@ -277,9 +316,50 @@
             font-size: 0.85rem;
         }
 
-        /* Portfolio Section */
-        #portfolio {
+        #volunteer {
             background: #f8f9fa;
+        }
+
+        .volunteer-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .volunteer-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .volunteer-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .volunteer-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--ocean-light));
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .volunteer-image:hover {
+            transform: scale(1.05);
+        }
+
+        .volunteer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #portfolio {
+            background: var(--white);
         }
 
         .portfolio-grid {
@@ -306,10 +386,17 @@
             height: 100%;
             background: rgba(0,0,0,0.3);
             transition: background 0.3s;
+            z-index: 1;
         }
 
         .portfolio-item:hover::before {
             background: rgba(0,0,0,0.6);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .portfolio-overlay {
@@ -322,6 +409,7 @@
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.3s;
+            z-index: 2;
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -345,7 +433,6 @@
             padding: 2rem;
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -381,7 +468,6 @@
             border-bottom: none;
         }
 
-        /* Writing Section */
         #writing {
             background: #f8f9fa;
         }
@@ -434,53 +520,74 @@
             color: var(--ocean-deep);
         }
 
-        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-blue) 100%);
+            color: var(--white);
+        }
+
+        #contact .section-title {
+            color: var(--white);
+        }
+
+        #contact .section-title::after {
+            background: var(--coral);
+        }
+
         .contact-content {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
         .contact-content p {
-            color: var(--text-light);
+            color: var(--white);
             margin-bottom: 2rem;
             font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
         }
 
         .contact-links {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .contact-link {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1.5rem;
+            gap: 0.8rem;
+            padding: 2rem 1.5rem;
             background: var(--white);
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             text-decoration: none;
             color: var(--ocean-deep);
             transition: all 0.3s;
-            min-width: 150px;
         }
 
         .contact-link:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .contact-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--ocean-blue);
         }
 
-        /* Footer */
+        .contact-link strong {
+            font-size: 1.1rem;
+            color: var(--ocean-deep);
+        }
+
+        .contact-link small {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
         footer {
             background: var(--ocean-deep);
             color: var(--white);
@@ -492,7 +599,6 @@
             opacity: 0.8;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -504,7 +610,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -529,16 +634,18 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .contact-links {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="#home" class="logo">Nika O'Reilly</a>
@@ -546,16 +653,16 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#writing">Writing</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#writing">Outreach</a></li>
+                <li><a href="#contact">Connect</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <h1>Nika O'Reilly</h1>
         <p class="subtitle">Ecological Researcher & Conservation Photographer</p>
@@ -566,55 +673,63 @@
         </div>
     </section>
 
-   <!-- About Section -->
-<section id="about">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-images">
-                <div class="about-image">
-                    <img src="images/IMG_8413.jpg" alt="Nika O'Reilly fieldwork" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-images">
+                    <div class="about-image">
+                        <img src="images/IMG_8413.jpg" alt="Nika O'Reilly fieldwork">
+                    </div>
+                    <div class="about-image main">
+                        <img src="images/unnamed.jpg" alt="Nika O'Reilly">
+                    </div>
+                    <div class="about-image">
+                        <img src="images/IMG_8416.jpg" alt="Nika O'Reilly fieldwork">
+                    </div>
                 </div>
-                <div class="about-image main">
-                    <img src="images/unnamed.jpg" alt="Nika O'Reilly" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                <div class="about-text">
+                    <h3>Marine Biologist & Science Communicator</h3>
+                    <p>I'm passionate about understanding and protecting our ocean ecosystems. From a long-term academic foundation and hands-on field experience, I want to combine hard research with creative storytelling to progress science and its accessibility.</p>
+                    <p>My work has focused on water contamination, habitat conservation and restoration, and documenting biodiversity through research and photography. I believe that effective conservation requires both solid science and the ability to connect people emotionally with the natural world.</p>
+                    <p>When I'm not in the field or lab, you'll find me diving and hiking, photographing loved ones and things, reading (a lot about nature of course), and enjoying the time I have with friends and family. An often ignored contingence of science and research is universal benefit from it; science is for well-being. Enjoying its benefits - in my field, things like clean beaches, safe water, interconnected spaces - are good for the well-being of everything in that environment, including humans. Including us.</p>
+                    
+                    <div class="document-links">
+                        <a href="documents/resume.pdf" class="doc-link" target="_blank">📄 View Resume</a>
+                        <a href="documents/cover-letter.pdf" class="doc-link" target="_blank">📝 View Cover Letter</a>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="images/IMG_8416.jpg" alt="Nika O'Reilly fieldwork" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
-                </div>
-            </div>
-            <div class="about-text">
-                <h3>Marine Biologist & Science Communicator</h3>
-                <p>I'm passionate about understanding and protecting our ocean ecosystems. From a long-term academic foundation and hands-on field experience, I want to combine hard research with creative storytelling to progress science and its accessibility.</p>
-                <p>My work has focused on water contamination, habitat conservation and restoration, and documenting biodiversity through research and photography. I believe that effective conservation requires both solid science and the ability to connect people emotionally with the natural world.</p>
-                <p>When I'm not in the field or lab, you'll find me diving and hiking, photographing loved ones and things, reading (a lot about nature of course), and enjoying the time I have with friends and family. An often ignored contingence of science and research is universal benefit from it; science is for well-being. Enjoying its benefits - in my field, things like clean beaches, safe water, interconnected spaces - are good for the well-being of everything in that environment, including humans. Including us.</p>
             </div>
         </div>
-    </div>
-</section>
-    <!-- Research Section -->
+    </section>
+
     <section id="research">
         <div class="container">
             <h2 class="section-title">Research & Projects</h2>
             <div class="research-grid">
                 <div class="research-card">
-                    <div class="research-image">Project Image 1</div>
+                    <div class="research-image">
+                        <img src="images/research1.jpg" alt="LA Water contamination research">
+                    </div>
                     <div class="research-content">
-                        <h3>LA Water contamination: Student Research Assistant</h3>
-                        <p class="role">Assistant Researcher</p>
-                        <p>Under the Moffett Lab, run by James Moffett, I work with Mia Bradshaw, a graduate student at the University of Southern California. We collect fresh and seawater samples from rivers and bays in the Los Angeles area to test for metals, specifically the rare earth metal Gadilinium as a marker for septic leaks and for excess nutrient runoff, as well as locate it as it is a contaminant./</p>
+                        <h3>LA Water Contamination Study</h3>
+                        <p class="role">Student Research Assistant</p>
+                        <p>Community science platform where divers and scientists upload public observations of marine species in the Galapagos, Cocos, and Baja regions. I worked under the Universidad de Quito de San Francisco with Alex Hearn monitoring survival rates, growth patterns, and ecosystem recovery over 4 months to provide hard research to combine with community observations.</p>
                         <div class="skills-tags">
                             <span class="tag">Field Research</span>
                             <span class="tag">Data Analysis</span>
-                            <span class="tag">Analytical Chemistry</span>
+                            <span class="tag">Scuba Diving</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="research-card">
-                    <div class="research-image">Project Image 2</div>
+                    <div class="research-image">
+                        <img src="images/research2.jpg" alt="Habitat biodiversity assessment">
+                    </div>
                     <div class="research-content">
-                        <h3>Habitat Biodiveristy and Productibity Assessment Student Researcher</h3>
-                        <p class="role">Field Researcher</p>
+                        <h3>Habitat Biodiversity and Productivity Assessment</h3>
+                        <p class="role">Student Researcher</p>
                         <p>Comprehensive survey between 0-20 meters where benthic cover, small vertebrate, and large vertebrate biodiversity were observed and quantified, contributing to long-term monitoring data of Galapagos marine ecosystem health. Observations advise adaptive and novel conservation and restoration strategies, especially for pelagic species. The project included monitoring cover, survival rates, growth patterns, and ecosystem recovery over 4 months to provide hard research to combine with community observations through public apps and organizations.</p>
                         <div class="skills-tags">
                             <span class="tag">Species ID</span>
@@ -625,13 +740,15 @@
                 </div>
 
                 <div class="research-card">
-                    <div class="research-image">Project Image 3</div>
+                    <div class="research-image">
+                        <img src="images/research3.jpg" alt="Landscape Justice Initiative">
+                    </div>
                     <div class="research-content">
                         <h3>Landscape Justice Initiative</h3>
                         <p class="role">Student Researcher and Representative</p>
-                        <p>Under the University of Southern California, campus projects have joined with landscaping management to intiate soil tests for replotting native, climate-adapted plants around campus. This project allows undergraduate research to be integrated into coursework, graduate research for background information and means of integration, and staff to literally implement the project on campus, disincluding the environmental and economic benefits around saving water and increasing natural, unmaintenanced productivity.</p>
-                        <div class="skills-tags"
-                            <span class="tag">Field work</span>
+                        <p>Under the University of Southern California, campus projects have joined with landscaping management to initiate soil tests for replanting native, climate-adapted plants around campus. This project allows undergraduate research to be integrated into coursework, graduate research for background information and means of integration, and staff to literally implement the project on campus, including the environmental and economic benefits around saving water and increasing natural, unmaintained productivity.</p>
+                        <div class="skills-tags">
+                            <span class="tag">Field Work</span>
                             <span class="tag">Article Writing</span>
                         </div>
                     </div>
@@ -640,48 +757,67 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <section id="volunteer">
+        <div class="container">
+            <h2 class="section-title">Volunteer Work</h2>
+            <div class="volunteer-content">
+                <p>I have had opportunities globally to volunteer through anthropogenic and ecological avenues. My last major volunteering opportunity was informing and acting on restorative farm practices in mainland Ecuador and the Galapagos Archipelago, as well as trail maintenance to sensitive ecosystems on uninhabited islands used for tourism. I have partaken in Community Science initiatives including Shark Count and collecting public data for macroinvertebrates in the Galapagos Islands and at Shoals Island in Maine as well as volunteer with beach cleanups with organizations like Surfrider in Maine and California.</p>
+            </div>
+            <div class="volunteer-gallery">
+                <div class="volunteer-image">
+                    <img src="images/volunteer1.jpg" alt="Volunteer work 1">
+                </div>
+                <div class="volunteer-image">
+                    <img src="images/volunteer2.jpg" alt="Volunteer work 2">
+                </div>
+                <div class="volunteer-image">
+                    <img src="images/volunteer3.jpg" alt="Volunteer work 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="portfolio">
         <div class="container">
             <h2 class="section-title">Photography Portfolio</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <div class="portfolio-placeholder">Coral Reef Ecosystem</div>
+                    <img src="images/portfolio1.jpg" alt="Coral Reef Ecosystem">
                     <div class="portfolio-overlay">
-                        <h3>Marine Life</h3>
-                        <p>Galapagos Islands</p>
+                        <h3>Coral Gardens</h3>
+                        <p>Healthy coral reef system, Caribbean Sea</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-placeholder">Marine Life</div>
+                    <img src="images/portfolio2.jpg" alt="Marine Life">
                     <div class="portfolio-overlay">
                         <h3>Sea Turtle</h3>
                         <p>Green sea turtle foraging on seagrass</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-placeholder">Coastal Landscape</div>
+                    <img src="images/portfolio3.jpg" alt="Coastal Landscape">
                     <div class="portfolio-overlay">
                         <h3>Rocky Shore</h3>
                         <p>Intertidal zone biodiversity</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-placeholder">Underwater Scene</div>
+                    <img src="images/portfolio4.jpg" alt="Underwater Scene">
                     <div class="portfolio-overlay">
-                        <h3>Animals</h3>
-                        <p>Temperate and tropical ecosystems</p>
+                        <h3>Kelp Forest</h3>
+                        <p>Temperate marine ecosystem</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-placeholder">Conservation Work</div>
+                    <img src="images/portfolio5.jpg" alt="Conservation Work">
                     <div class="portfolio-overlay">
                         <h3>Field Research</h3>
                         <p>Coral transplantation project</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-placeholder">Ocean Wildlife</div>
+                    <img src="images/portfolio6.jpg" alt="Ocean Wildlife">
                     <div class="portfolio-overlay">
                         <h3>Reef Sharks</h3>
                         <p>Apex predators in marine ecosystem</p>
@@ -691,7 +827,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Skills & Expertise</h2>
@@ -747,11 +882,17 @@
         </div>
     </section>
 
-    <!-- Writing Section -->
     <section id="writing">
         <div class="container">
-            <h2 class="section-title">Writing & Publications</h2>
+            <h2 class="section-title">Science Communication & Public Outreach</h2>
             <div class="writing-grid">
+                <div class="writing-card">
+                    <p class="date">November 2025</p>
+                    <h3>Science Communication on TikTok</h3>
+                    <p>My Aliya Jasmine-informed science communication project exploring how to make marine biology accessible and engaging for broader audiences through social media.</p>
+                    <a href="https://www.tiktok.com/t/ZP8yREq8E/" target="_blank" class="read-more">View on TikTok →</a>
+                </div>
+
                 <div class="writing-card">
                     <p class="date">December 2025</p>
                     <h3>The Benefits and Drawbacks to Green Infrastructure Development: An Anthropological Study</h3>
@@ -759,46 +900,54 @@
                     <a href="#" class="read-more">Read Article →</a>
                 </div>
 
-        
 
-    <!-- Contact Section -->
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Connect With Me</h2>
             <div class="contact-content">
-                <p>Interested in collaboration, research opportunities, or just want to talk about ocean conservation? I'd love to hear from you!</p>
+                <p>Please connect with me if you have any opportunities, questions, or comments about the work that I do. A large part of science is its connectivity, and I encourage anyone sharing interest in the work that I want to pursue to reach out. Whether you're interested in collaboration, research opportunities, or just want to talk about ocean conservation, I'd love to hear from you!</p>
                 
                 <div class="contact-links">
                     <a href="mailto:nsoreill@usc.edu" class="contact-link">
                         <span class="contact-icon">✉️</span>
-                        <span>Email</span>
+                        <strong>Email</strong>
+                        <small>nsoreill@usc.edu</small>
                     </a>
-                    <a href="www.linkedin.com/in/nika-oreilly-3ab178388" target="_blank" class="contact-link">
+                    <a href="tel:+12072054892" class="contact-link">
+                        <span class="contact-icon">📞</span>
+                        <strong>Phone</strong>
+                        <small>(207) 205-4892</small>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nika-oreilly-3ab178388" target="_blank" class="contact-link">
                         <span class="contact-icon">💼</span>
-                        <span>LinkedIn</span>
+                        <strong>LinkedIn</strong>
+                        <small>Professional Profile</small>
                     </a>
-                    <a href="https://www.tiktok.com/t/ZP8yREq8E/7" target="_blank" class="contact-link">
-                        <span class="contact-icon">🔬</span>
-                        <span>TikTok</span>
+                    <a href="https://www.tiktok.com/t/ZP8yREq8E/" target="_blank" class="contact-link">
+                        <span class="contact-icon">🎬</span>
+                        <strong>TikTok</strong>
+                        <small>Science Communication</small>
                     </a>
                     <a href="https://www.instagram.com/nikaoreilly/" target="_blank" class="contact-link">
                         <span class="contact-icon">📷</span>
-                        <span>Instagram</span>
+                        <strong>Instagram</strong>
+                        <small>Photography</small>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Nika O'Reilly. All rights reserved. | Marine Biology & Conservation</p>
+            <p>&copy; 2024 Nika O'Reilly. All rights reserved. | Marine Biology & Conservation</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -812,7 +961,6 @@
             });
         });
 
-        // Mobile menu toggle (basic functionality)
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navUl = document.querySelector('nav ul');
         
@@ -831,7 +979,6 @@
             }
         });
 
-        // Add scroll effect to navigation
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -847,8 +994,5 @@
         });
     </script>
 </body>
-
 </html>
-
-
 
